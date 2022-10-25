@@ -1,4 +1,4 @@
-# block_highlight.nvim
+# block-highlight.nvim
 
 
 A small plugin for neovim to highlight within or around a block. Based on tree-sitter and lua.
