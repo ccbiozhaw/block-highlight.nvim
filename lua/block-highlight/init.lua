@@ -74,5 +74,3 @@ M.select = function(mode)
 		M.update_selection(start_row, start_col, end_row, end_col)
 	end
 end
-
-M.select()
