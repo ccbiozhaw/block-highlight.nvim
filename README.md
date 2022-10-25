@@ -33,6 +33,6 @@ use 'ccbiozhaw/block-highlight.nvim'
 for your keymaps.lua
 
 ```
-vim.keymap.set("n", "<leader>vib", "<cmd>lua require('block-highlight').select('inside')<CR>, {silent = true})
-vim.keymap.set("n", "<leader>vab", "<cmd>lua require('block-highlight').select('around')<CR>, {silent = true})
+vim.keymap.set("n", "<leader>vib", "<cmd>lua require('block-highlight').select('inside')<CR>", {silent = true})
+vim.keymap.set("n", "<leader>vab", "<cmd>lua require('block-highlight').select('around')<CR>", {silent = true})
 ```
