@@ -48,6 +48,8 @@ M.select = function(mode)
 		return
 	end
 
+  ft = ft:gsub("react", "")
+
 	local query = vim.treesitter.parse_query(ft, br)
 
 	local fff = rec_brackets(starting_node, query)
