@@ -10,6 +10,7 @@ local function rec_brackets(starting_node, query_captures)
 	if starting_node == nil then
 		return nil
 	end
+
 	local parents_table = {}
 
 	for _, node in query_captures:iter_captures(starting_node) do
@@ -83,7 +84,5 @@ M.select = function(mode)
 		M.update_selection(start_row, start_col, end_row, end_col)
 	end
 end
-
-M.select()
 
 return M
