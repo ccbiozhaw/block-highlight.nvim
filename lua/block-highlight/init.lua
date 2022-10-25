@@ -7,6 +7,7 @@ local br = [[
 ]]
 
 local function rec_brackets(starting_node, query_captures)
+  print("calling rec_brackets")
 	if starting_node == nil then
 		return nil
 	end
@@ -52,14 +53,14 @@ M.select = function(mode)
 
 	local query = vim.treesitter.parse_query(ft, br)
 
-	local fff = rec_brackets(starting_node, query)
-	if fff == nil then
+	local surrounding_nodes = rec_brackets(starting_node, query)
+	if surrounding_nodes == nil then
 		return
-	elseif #fff ~= 2 then
+	elseif #surrounding_nodes ~= 2 then
 		return
 	else
-		local start_node = fff[1]
-		local end_node = fff[2]
+		local start_node = surrounding_nodes[1]
+		local end_node = surrounding_nodes[2]
 
 		local start_row, start_col, _ = start_node:start()
 		local end_row, end_col, _ = end_node:end_()
@@ -74,3 +75,7 @@ M.select = function(mode)
 		M.update_selection(start_row, start_col, end_row, end_col)
 	end
 end
+
+M.select()
+
+return M
