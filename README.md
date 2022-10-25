@@ -11,8 +11,10 @@ With the cursor on a string, the string will be highlighted.
 
 ![image](https://user-images.githubusercontent.com/80820813/197793270-4ae84c51-9d4e-42a2-8557-f44993af8945.png)  <br/>
 
-Otherwise the next surrounding brackets will be selected.
-
+Otherwise the next surrounding brackets will be selected. 
+```
+brackets: ["(" ")" "[" "]" "{" "}"]
+```
 ![image](https://user-images.githubusercontent.com/80820813/197793473-598d3ab6-44e3-402c-8a02-403c18cc4f36.png)  <br/>
 
 
