@@ -7,7 +7,6 @@ local br = [[
 ]]
 
 local function rec_brackets(starting_node, query_captures)
-  print("calling rec_brackets")
 	if starting_node == nil then
 		return nil
 	end
@@ -43,17 +42,26 @@ end
 M.select = function(mode)
 	mode = mode or "around"
 	local starting_node = ts_utils.get_node_at_cursor()
+	if starting_node == nil then
+		return
+	end
 
 	local ft = vim.bo.filetype
 	if ft == nil then
 		return
 	end
 
-  ft = ft:gsub("react", "")
+	ft = ft:gsub("react", "")
 
 	local query = vim.treesitter.parse_query(ft, br)
 
-	local surrounding_nodes = rec_brackets(starting_node, query)
+	local surrounding_nodes
+	if starting_node:type() == "string" then
+		surrounding_nodes = { starting_node, starting_node }
+	else
+		surrounding_nodes = rec_brackets(starting_node, query)
+	end
+
 	if surrounding_nodes == nil then
 		return
 	elseif #surrounding_nodes ~= 2 then
