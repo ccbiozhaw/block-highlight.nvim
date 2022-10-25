@@ -3,7 +3,7 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 local M = {}
 
 local br = [[
-["(" ")" "[" "]" "{" "}" "<" ">"]  @bracket
+["(" ")" "[" "]" "{" "}"]  @bracket
 ]]
 
 local function rec_brackets(starting_node, query_captures)
